@@ -1,46 +1,122 @@
+
 {% extends "base.html" %}
-{% block title %}Create account — Ledger{% endblock %}
+
+{% block title %}Create Account — Expense Tracker{% endblock %}
+
 {% block content %}
+
 <div class="auth-shell" data-testid="signup-page">
+
   <div class="auth-card">
+
+    <!-- Application Branding -->
     <div class="auth-brand">
       <span class="brand-dot"></span>
-      <span class="brand-name">Ledger<span class="brand-accent">.</span></span>
-    </div>
-    <h1 class="auth-title">Create your ledger</h1>
-    <p class="auth-sub">Track income, expenses, and budgets in one place.</p>
 
+      <span class="brand-name">
+        <i class="fa-solid fa-wallet"></i>
+        Expense Tracker<span class="brand-accent">.</span>
+      </span>
+    </div>
+
+    <!-- Registration Heading -->
+    <h1 class="auth-title">Create Your Account</h1>
+
+    <p class="auth-sub">
+      Start managing your income, expenses, and monthly budgets in one place.
+    </p>
+
+    <!-- Registration Form -->
     <form method="POST" class="stack" novalidate>
-      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+      <input
+        type="hidden"
+        name="csrf_token"
+        value="{{ csrf_token() }}"
+      />
+
       <label class="field">
-        <span>Full name</span>
-        <input type="text" name="name" required data-testid="signup-name" placeholder="Ada Lovelace" />
+        <span>Full Name</span>
+
+        <input
+          type="text"
+          name="name"
+          required
+          data-testid="signup-name"
+          placeholder="Enter your full name"
+        />
       </label>
+
       <label class="field">
-        <span>Email</span>
-        <input type="email" name="email" required data-testid="signup-email" placeholder="you@example.com" />
+        <span>Email Address</span>
+
+        <input
+          type="email"
+          name="email"
+          required
+          data-testid="signup-email"
+          placeholder="you@example.com"
+        />
       </label>
+
       <label class="field">
         <span>Password</span>
-        <input type="password" name="password" required minlength="6" data-testid="signup-password" placeholder="min 6 characters" />
+
+        <input
+          type="password"
+          name="password"
+          required
+          minlength="6"
+          data-testid="signup-password"
+          placeholder="Minimum 6 characters"
+        />
       </label>
-      <button type="submit" class="btn primary" data-testid="signup-submit">
-        Create account <i class="fa-solid fa-arrow-right"></i>
+
+      <button
+        type="submit"
+        class="btn primary"
+        data-testid="signup-submit"
+      >
+        Create Account <i class="fa-solid fa-arrow-right"></i>
       </button>
+
     </form>
 
+    <!-- Login Link -->
     <p class="auth-alt">
       Already have an account?
-      <a href="{{ url_for('login') }}" data-testid="link-login">Sign in</a>
+
+      <a href="{{ url_for('login') }}" data-testid="link-login">
+        Sign In
+      </a>
     </p>
+
   </div>
+
+  <!-- Promotional Section -->
   <aside class="auth-quote">
+
     <div class="grain"></div>
+
     <div class="quote-body">
-      <span class="tag">Onboarding · 30 seconds</span>
-      <h2>Build the habit,<br/>build the wealth.</h2>
-      <p>Sign up now — start categorising your first expense in under a minute.</p>
+
+      <span class="tag">
+        Smart Financial Management
+      </span>
+
+      <h2>
+        Build Better Habits,<br />
+        Secure Your Future.
+      </h2>
+
+      <p>
+        Take control of your money, monitor your spending, and make smarter financial decisions every day.
+      </p>
+
     </div>
+
   </aside>
+
 </div>
+
 {% endblock %}
